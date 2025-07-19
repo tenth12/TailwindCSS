@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>บันทึกเกรดรายบุคคล</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100  min-h-screen">
+  <header class="bg-green-600 text-white p-4 shadow-md">
+    <div class="container mx-auto flex flex-col md:flex-row md:justify-between md:items-center">
+      <h1 class="text-xl font-bold mb-2 md:mb-0">ระบบทะเบียนนักเรียน</h1>
+      <nav class="flex flex-row space-x-4 text-sm">
+        <a href="login_done_t.html" class="hover:underline">หน้าแรก</a>
+        <a href="subject.html" class="hover:underline">รายวิชาที่สอน</a>
+        <a href="grade.html" class="hover:underline">บันทึกเกรดรายบุคคล</a>
+        <a href="index.html" class="hover:underline">ออกสู่ระบบ</a>
+      </nav>
+    </div>
+  </header>
+    <h2 class="text-2xl font-bold mb-6 text-center text-gray-800 p-6 "> บันทึกเกรดรายบุคคล</h2>
+    
+    <!-- ข้อมูลรายวิชา -->
+    <div class="mb-4 text-gray-600 mx-auto px-10">
+      <p><strong>รายวิชา:</strong> CS101 - พื้นฐานการเขียนโปรแกรม</p>
+      <p><strong>ปีการศึกษา:</strong> 2568 ภาคเรียนที่ 1</p>
+    </div>
+
+    <!-- ตารางนักศึกษา -->
+    
+    <div class="overflow-x-auto max-w-[700px] mx-auto ">
+      <table class="min-w-full table-auto border border-gray-300 text-center">
+        <thead class="bg-blue-100 text-gray-700 ">
+          <tr>
+            <th class="border px-4 py-2">ลำดับ</th>
+            <th class="border px-4 py-2">รหัสนักศึกษา</th>
+            <th class="border px-4 py-2">ชื่อ - สกุล</th>
+            <th class="border px-4 py-2">เกรด</th>
+            <th class="border px-4 py-2">บันทึก</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ตัวอย่างนักศึกษา -->
+          <tr class="hover:bg-gray-50">
+            <td class="border px-4 py-2">1</td>
+            <td class="border px-4 py-2">67010001</td>
+            <td class="border px-4 py-2">สมชาย ใจดี</td>
+            <td class="border px-4 py-2">
+              <input type="text" class="w-16 border rounded px-2 py-1 text-center"  />
+            </td>
+            <td class="border px-4 py-2">
+              <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded">บันทึก</button>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="border px-4 py-2">2</td>
+            <td class="border px-4 py-2">67010002</td>
+            <td class="border px-4 py-2">สุดา แสนดี</td>
+            <td class="border px-4 py-2">
+              <input type="text" class="w-16 border rounde px-2 py-1 text-center"  />
+            </td>
+            <td class="border px-4 py-2">
+              <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded">บันทึก</button>
+            </td>
+          </tr>
+          <!-- เพิ่มนักศึกษาได้เรื่อย ๆ -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </nav>
+</body>
+
+</html>
