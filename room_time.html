@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ตารางการใช้ห้อง</title>
+    <link rel="stylesheet" href="./src/output.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" rel="stylesheet">
+    <style>
+        /* เพิ่มสไตล์สำหรับ Transition เพื่อให้การแสดงผลสมูทขึ้น */
+        table {
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        table.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .overflow-x-auto::-webkit-scrollbar {
+            height: 8px;
+        }
+        .overflow-x-auto::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .overflow-x-auto::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans">
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-center h-16">
+                 <i class="ri-calendar-check-line text-2xl text-green-600 mr-2"></i>
+                <h2 class="text-xl font-bold text-green-700">ตารางการใช้ห้อง</h2>
+            </div>
+        </div>
+    </header>
+    <h1 class="text-xl font-bold text-center bg-green-600 text-white">ระบบทะเบียนนักเรียน</h1>
+    <nav class="bg-white/70 backdrop-blur-lg shadow-md border-b border-slate-200">
+        <div class="max-w-5xl mx-auto flex justify-center text-center text-sm md:text-base">
+            <a href="index.html" class="flex-1 py-3 text-slate-600 hover:bg-green-50 hover:text-green-700 transition-colors duration-300">หน้าแรก</a>
+            <a href="learn_time.html" class="flex-1 py-3 text-slate-600 hover:bg-green-50 hover:text-green-700 transition-colors duration-300">ตารางเรียน</a>
+            <a href="room_time.html" class="flex-1 py-3 bg-green-100 text-green-700 font-semibold border-b-2 border-green-500">ตารางการใช้ห้อง</a>
+            <a href="calendar.html" class="flex-1 py-3 text-slate-600 hover:bg-green-50 hover:text-green-700 transition-colors duration-300">ปฏิทินการศึกษา</a>
+        </div>
+    </nav>
+
+    <main class="p-4 md:p-8 max-w-7xl mx-auto">
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+            <label for="room" class="block mb-2 font-semibold text-slate-700">เลือกห้องเรียน:</label>
+             <div class="relative">
+                <select id="room"
+                    class="w-full appearance-none p-3 pl-4 pr-10 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
+                    onchange="showTable()">
+                    <option value="">-- กรุณาเลือกห้องเรียน --</option>
+                    <option value="8142">ตึก คณะวิทยาศาสตร์ Lab 3‑4</option>
+                    <option value="5823">อาคารจุฬาภรณ์ ห้อง 3203</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
+                    <i class="ri-arrow-down-s-line"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto mt-8">
+            <table id="table-8142" class="w-full border-collapse" style="display:none; min-width: 800px;">
+                <thead class="text-sm">
+                    <tr>
+                        <th class="py-3 px-4 bg-green-600 text-white font-semibold border-b-2 border-green-700 text-left rounded-tl-lg">วัน/เวลา</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">8:00-9:00</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">9:00-10:00</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">10:00-11:00</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">11:00-12:00</th>
+                        <th class="py-3 px-3 bg-slate-200 text-slate-500 font-semibold border-b-2 border-slate-300">พักเที่ยง</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">13:00-14:00</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">14:00-15:00</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700 rounded-tr-lg">15:00-16:00</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center text-sm">
+                    <tr class="hover:bg-green-50 transition-colors duration-200">
+                        <td class="font-semibold border-b border-slate-200 py-3 px-4 text-left bg-white">จันทร์</td>
+                        <td class="border-b border-slate-200"></td>
+                        <td colspan="3" class="border-b border-slate-200 bg-green-100/70 p-2">
+                            <div class="font-semibold text-green-800">เว็บเทคโนโลยี</div>
+                            <div class="text-xs text-green-600">(10301231)</div>
+                        </td>
+                        <td class="border-b border-slate-200 bg-slate-100"></td>
+                        <td colspan="2" class="border-b border-slate-200 bg-green-100/70 p-2">
+                            <div class="font-semibold text-green-800">โครงสร้างข้อมูลและอัลกอริทึม</div>
+                             <div class="text-xs text-green-600">(10301222)</div>
+                        </td>
+                        <td class="border-b border-slate-200"></td>
+                    </tr>
+                    <tr class="hover:bg-green-50 transition-colors duration-200">
+                        <td class="font-semibold border-b border-slate-200 py-3 px-4 text-left bg-white">อังคาร</td>
+                        <td colspan="2" class="border-b border-slate-200 bg-green-100/70 p-2">
+                             <div class="font-semibold text-green-800">เว็บเทคโนโลยี</div>
+                             <div class="text-xs text-green-600">(10301231)</div>
+                        </td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200 bg-slate-100"></td>
+                        <td colspan="2" class="border-b border-slate-200 bg-teal-100/70 p-2">
+                             <div class="font-semibold text-teal-800">วิศวกรรมซอฟต์แวร์</div>
+                             <div class="text-xs text-teal-600">(10301225)</div>
+                        </td>
+                        <td class="border-b border-slate-200"></td>
+                    </tr>
+                    <tr class="hover:bg-green-50 transition-colors duration-200">
+                        <td class="font-semibold border-b border-slate-200 py-3 px-4 text-left bg-white">พุธ</td>
+                        <td class="border-b border-slate-200"></td>
+                        <td colspan="2" class="border-b border-slate-200 bg-sky-100/70 p-2">
+                            <div class="font-semibold text-sky-800">เทคโนโลยีสารสนเทศและการสื่อสาร</div>
+                            <div class="text-xs text-sky-600">(10301112)</div>
+                        </td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200 bg-slate-100"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                    </tr>
+                    <tr class="hover:bg-green-50 transition-colors duration-200">
+                        <td class="font-semibold border-b border-slate-200 py-3 px-4 text-left bg-white">พฤหัสบดี</td>
+                        <td class="border-b border-slate-200"></td>
+                        <td colspan="3" class="border-b border-slate-200 bg-green-100/70 p-2">
+                            <div class="font-semibold text-green-800">โครงสร้างข้อมูลและอัลกอริทึม</div>
+                             <div class="text-xs text-green-600">(10301222)</div>
+                        </td>
+                        <td class="border-b border-slate-200 bg-slate-100"></td>
+                        <td colspan="2" class="border-b border-slate-200 bg-amber-100/70 p-2">
+                            <div class="font-semibold text-amber-800">ฐานข้อมูลโครงสร้างเชิงสัมพันธ์</div>
+                            <div class="text-xs text-amber-600">(10301223)</div>
+                        </td>
+                        <td class="border-b border-slate-200"></td>
+                    </tr>
+                    <tr class="hover:bg-green-50 transition-colors duration-200">
+                        <td class="font-semibold border-b border-slate-200 py-3 px-4 text-left bg-white rounded-bl-lg">ศุกร์</td>
+                        <td class="border-b border-slate-200"></td>
+                        <td colspan="3" class="border-b border-slate-200 bg-rose-100/70 p-2">
+                            <div class="font-semibold text-rose-800">การเขียนโปรแกรมเบื้องต้น</div>
+                            <div class="text-xs text-rose-600">(10301111)</div>
+                        </td>
+                        <td class="border-b border-slate-200 bg-slate-100"></td>
+                        <td colspan="3" class="border-b border-slate-200 bg-amber-100/70 p-2 rounded-br-lg">
+                            <div class="font-semibold text-amber-800">ฐานข้อมูลโครงสร้างเชิงสัมพันธ์</div>
+                            <div class="text-xs text-amber-600">(10301223)</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table id="table-5823" class="w-full border-collapse" style="display:none; min-width: 900px;">
+                 <thead class="text-sm">
+                    <tr>
+                        <th class="py-3 px-4 bg-green-600 text-white font-semibold border-b-2 border-green-700 text-left rounded-tl-lg">วัน/เวลา</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">8:00-9:00</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">9:00-10:00</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">10:00-11:00</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">11:00-12:00</th>
+                        <th class="py-3 px-3 bg-slate-200 text-slate-500 font-semibold border-b-2 border-slate-300">พักเที่ยง</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">13:00-14:00</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">14:00-15:00</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700">15:00-16:00</th>
+                        <th class="py-3 px-3 bg-green-600 text-white font-semibold border-b-2 border-green-700 rounded-tr-lg">16:00-17:00</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center text-sm">
+                    <tr class="hover:bg-green-50 transition-colors duration-200">
+                        <td class="font-semibold border-b border-slate-200 py-3 px-4 text-left bg-white">จันทร์</td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200 bg-slate-100"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                    </tr>
+                    <tr class="hover:bg-green-50 transition-colors duration-200">
+                        <td class="font-semibold border-b border-slate-200 py-3 px-4 text-left bg-white">อังคาร</td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td colspan="2" class="border-b border-slate-200 bg-sky-100/70 p-2">
+                             <div class="font-semibold text-sky-800">เทคโนโลยีสารสนเทศและการสื่อสาร</div>
+                            <div class="text-xs text-sky-600">(10301112)</div>
+                        </td>
+                        <td class="border-b border-slate-200 bg-slate-100"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td colspan="2" class="border-b border-slate-200 bg-indigo-100/70 p-2">
+                             <div class="font-semibold text-indigo-800">คณิตศาสตร์สำหรับวิทยาการคอมพิวเตอร์</div>
+                            <div class="text-xs text-indigo-600">(10301211)</div>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-green-50 transition-colors duration-200">
+                        <td class="font-semibold border-b border-slate-200 py-3 px-4 text-left bg-white">พุธ</td>
+                        <td class="border-b border-slate-200"></td>
+                        <td colspan="3" class="border-b border-slate-200 bg-teal-100/70 p-2">
+                             <div class="font-semibold text-teal-800">วิศวกรรมซอฟต์แวร์</div>
+                             <div class="text-xs text-teal-600">(10301225)</div>
+                        </td>
+                        <td class="border-b border-slate-200 bg-slate-100"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                    </tr>
+                     <tr class="hover:bg-green-50 transition-colors duration-200">
+                        <td class="font-semibold border-b border-slate-200 py-3 px-4 text-left bg-white">พฤหัสบดี</td>
+                        <td colspan="2" class="border-b border-slate-200 bg-rose-100/70 p-2">
+                            <div class="font-semibold text-rose-800">การเขียนโปรแกรมเบื้องต้น</div>
+                            <div class="text-xs text-rose-600">(10301111)</div>
+                        </td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200 bg-slate-100"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                        <td class="border-b border-slate-200"></td>
+                    </tr>
+                     <tr class="hover:bg-green-50 transition-colors duration-200">
+                        <td class="font-semibold border-b-0 border-slate-200 py-3 px-4 text-left bg-white rounded-bl-lg">ศุกร์</td>
+                        <td colspan="2" class="border-b-0 border-slate-200 bg-indigo-100/70 p-2">
+                             <div class="font-semibold text-indigo-800">คณิตศาสตร์สำหรับวิทยาการคอมพิวเตอร์</div>
+                            <div class="text-xs text-indigo-600">(10301211)</div>
+                        </td>
+                        <td class="border-b-0 border-slate-200"></td>
+                        <td class="border-b-0 border-slate-200"></td>
+                        <td class="border-b-0 border-slate-200 bg-slate-100"></td>
+                        <td class="border-b-0 border-slate-200"></td>
+                        <td class="border-b-0 border-slate-200"></td>
+                        <td class="border-b-0 border-slate-200"></td>
+                        <td class="border-b-0 border-slate-200 rounded-br-lg"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="text-center text-xs text-slate-500 p-8 mt-8">
+        <p>© 2025 ระบบทะเบียนนักเรียน | มหาวิทยาลัยแม่โจ้</p>
+        <p class="text-sm">โทร: 02-123-4567 | อีเมล: reg@mju.ac.th</p>
+    </footer>
+
+    <script>
+        function showTable() {
+            const selectedValue = document.getElementById('room').value;
+            const allTables = document.querySelectorAll('table[id^="table-"]');
+
+            allTables.forEach(table => {
+                // ซ่อนตารางที่ไม่ถูกเลือก
+                if (table.id !== 'table-' + selectedValue) {
+                    table.style.display = 'none';
+                    table.classList.remove('active');
+                }
+            });
+
+            if (selectedValue) {
+                const selectedTable = document.getElementById('table-' + selectedValue);
+                if (selectedTable) {
+                    // แสดงตารางที่เลือกและเพิ่ม class 'active' เพื่อให้ animation ทำงาน
+                    selectedTable.style.display = 'table';
+                    // ใช้ setTimeout เล็กน้อยเพื่อให้ display property เปลี่ยนก่อนที่จะเพิ่ม class
+                    setTimeout(() => {
+                        selectedTable.classList.add('active');
+                    }, 10);
+                }
+            }
+        }
+        // เรียกใช้ครั้งแรกเพื่อให้แน่ใจว่าไม่มีตารางแสดงอยู่
+        showTable();
+    </script>
+</body>
+</html>

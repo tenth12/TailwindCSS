@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ระบบทะเบียน</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-green-600 text-white p-4 shadow-md">
+    <div class="container mx-auto flex flex-col md:flex-row md:justify-between md:items-center">
+      <h1 class="text-xl font-bold mb-2 md:mb-0">ระบบทะเบียนนักเรียน</h1>
+      <nav class="flex flex-row space-x-4 text-sm">
+        <a href="index.html" class="hover:underline">หน้าแรก</a>
+        <a href="learn_time.html" class="hover:underline">ตารางเรียน</a>
+        <a href="room_time.html" class="hover:underline">ตารางการใช้ห้อง</a>
+        <a href="calendar.html" class="hover:underline">ปฏิทินการศึกษา</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-green-100 py-10 px-4 text-center">
+    <h2 class="text-2xl md:text-3xl font-semibold mb-2">ยินดีต้อนรับสู่ระบบทะเบียน</h2>
+    <p class="text-gray-700 mb-4">ระบบจัดการข้อมูลการเรียน ตารางเรียน และผลการเรียนของนักเรียน</p>
+    <div class="text-center mt-10">
+      <h2 class="text-2xl font-bold text-green-700 mb-4">เข้าสู่ระบบ</h2>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+          <a href="" class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition w-50 text-center">
+            สำหรับนักศึกษา
+          </a>
+      
+          <a href="login_t.heml" class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition w-50 text-center">
+            สำหรับอาจารย์
+          </a>
+        </div>
+    </div>
+  </section>
+
+  <!-- Quick Access -->
+  <section class="container mx-auto my-10 px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="bg-white rounded-xl shadow p-6 text-center hover:shadow-lg transition">
+      <h3 class="text-lg font-semibold mb-2 text-green-700">ลงทะเบียนเรียน</h3>
+      <p class="text-sm mb-4">เลือกและลงทะเบียนรายวิชาที่เปิดสอนในภาคการศึกษา</p>
+      <a href="#" class="text-green-600 hover:underline">ดูรายละเอียด</a>
+    </div>
+    <div class="bg-white rounded-xl shadow p-6 text-center hover:shadow-lg transition">
+      <h3 class="text-lg font-semibold mb-2 text-green-700">ตรวจสอบผลการเรียน</h3>
+      <p class="text-sm mb-4">เช็คผลสอบและเกรดแต่ละภาคการศึกษา</p>
+      <a href="#" class="text-green-600 hover:underline">ตรวจสอบ</a>
+    </div>
+    <div class="bg-white rounded-xl shadow p-6 text-center hover:shadow-lg transition">
+      <h3 class="text-lg font-semibold mb-2 text-green-700">ปฏิทินวิชาการ</h3>
+      <p class="text-sm mb-4">ดูวันสำคัญ เช่น วันลงทะเบียน วันสอบ และปิดภาค</p>
+      <a href="calendar.html" class="text-green-600 hover:underline">เปิดดู</a>
+    </div>
+  </section>
+
+  <!-- ข่าวสาร -->
+  <section class="container mx-auto px-4 mb-10">
+    <h3 class="text-xl font-bold text-green-700 mb-4">ข่าวสาร / ประกาศ</h3>
+    <ul class="space-y-2">
+      <li class="bg-white p-4 rounded-md shadow hover:bg-green-50">
+        📌 เปิดลงทะเบียนเรียนภาคต้น 1/2568 ตั้งแต่วันที่ 1 - 15 สิงหาคม
+      </li>
+      <li class="bg-white p-4 rounded-md shadow hover:bg-green-50">
+        🧾 ตรวจสอบผลสอบกลางภาค ได้แล้ววันนี้
+      </li>
+      <li class="bg-white p-4 rounded-md shadow hover:bg-green-50">
+        📅 วันสอบปลายภาคจะเริ่มวันที่ 20 กันยายน เป็นต้นไป
+      </li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-green-600 text-white text-center py-6">
+    <p>© 2025 ระบบทะเบียนนักเรียน | มหาวิทยาลัยแม่โจ้</p>
+    <p class="text-sm">โทร: 02-123-4567 | อีเมล: reg@mju.ac.th</p>
+  </footer>
+
+</body>
+</html>
